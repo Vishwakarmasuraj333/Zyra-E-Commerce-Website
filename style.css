@@ -26,8 +26,7 @@
             color: white;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             border-bottom: 2px solid rgb(30, 136, 249);
-            position: relative;
-
+    
         }
 
         .logo {
@@ -1215,3 +1214,4 @@
         }
 
     
+
