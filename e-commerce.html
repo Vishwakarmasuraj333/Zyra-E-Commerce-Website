@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Zyra - E-commerce</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <header class="top-navbar">
+        <div class="logo">Zy<span>ra</span></div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search products...">
+            <button class="order-btn" onclick="openModal()">Order</button>
+
+        </div><i class="fa-brands fa-amazon-pay"></i>
+
+
+
+        <div id="hum" class="hum"><span></span><span></span><span></span></div>
+    </header>
+
+
+    <nav class="bottom-navbar">
+
+        <ul id="navlinks" id="navlinks" class="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#TopRated">Top Rated</a></li>
+            <li><a href="#">Men Wear</a></li>
+            <li><a href="#">Kids Wear</a></li>
+            <li><a href="#Winter">Winter Sell</a></li>
+            <li><a href="#">Electronics</a></li>
+            <li class="dropdown">
+                <span style="color: rgb(71, 145, 255);"> Trending Products ▾</span>
+                <ul class="dropdown-menu">
+                    <li style="color: tomato;">Hot Deals</li>
+                    <li>Best Sellers</li>
+                    <li>New Arrivals</li>
+                    <li>Limited Offers</li>
+                </ul>
+                <i class="fa-solid fa-cart-shopping-fast"></i>
+            <li class="lang-dropdown">
+                <span style="color: tomato;">🌐 Language ▾</span>
+                <ul class="lang-menu">
+                    <li onclick="changeLang('English')">English</li>
+                    <li onclick="changeLang('Hindi')">Hindi</li>
+                    <li onclick="changeLang('Marathi')">Marathi</li>
+                    <li onclick="changeLang('Urdu')">Urdu</li>
+                    <li onclick="changeLang('Gujarati')">Gujarati</li>
+                    <li onclick="changeLang('Punjabi')">Punjabi</li>
+                    <li onclick="changeLang('Bengali')">Bengali</li>
+                    <li onclick="changeLang('Tamil')">Tamil</li>
+                    <li onclick="changeLang('Telugu')">Telugu</li>
+                    <li onclick="changeLang('Kannada')">Kannada</li>
+                </ul>
+            </li>
+            </li>
+        </ul>
+    </nav>
+    <section class="hero-banner">
+
+        <div class="slider">
+
+
+            <div class="slide active" id="home">
+                <div class="hero-container" style="height: 80vh;">
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1607083206869-4c7672e72a8a" alt="">
+                    </div>
+                    <div class="hero-content">
+                        <h4>Limited Time Offer</h4>
+                        <h1><span>70% OFF</span></h1>
+                        <p>Upgrade your style with latest fashion & electronics.</p>
+                        <button class="shop-btn">Shop Now</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="slide">
+                <div class="hero-container">
+
+                    <div class="hero-content">
+                        <h4>New Collection</h4>
+                        <h1><span>50% OFF</span></h1>
+                        <p>Discover trending fashion styles at amazing prices.</p>
+                        <button class="shop-btn">Explore Now</button>
+                    </div>
+                    <div class="hero-image">
+                        <img src="c:\Users\imdee\Downloads\b2.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="slide">
+                <div class="hero-container">
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9" alt="">
+                    </div>
+                    <div class="hero-content">
+                        <h4>Big Electronics Sale</h4>
+                        <h1><span>Up To 60% OFF</span></h1>
+                        <p>Grab gadgets & accessories at lowest prices.</p>
+                        <button class="shop-btn">Grab Deal</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="slide">
+                <div class="hero-container">
+
+                    <div class="hero-content">
+                        <h4>Special Winter Collection</h4>
+                        <h1>Flat <span>60% OFF</span></h1>
+                        <p>Upgrade your wardrobe with premium styles at unbeatable prices.</p>
+                        <button class="shop-btn">Shop Collection</button>
+                    </div>
+                    <div class="hero-image">
+                        <img src="c:\Users\imdee\Downloads\b1.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </section>
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <div class="close-btn" onclick="closeModal()">X</div>
+            <h2>Payment Details</h2>
+
+            <input type="text" id="name" placeholder="Full Name">
+            <input type="text" id="card" placeholder="Card Number">
+            <input type="text" id="expiry" placeholder="MM/YY">
+            <input type="text" id="cvv" placeholder="CVV">
+
+            <button class="pay-btn" onclick="processPayment()">Pay ₹1999</button>
+        </div>
+    </div>
+
+    <section class="top-selling" id="" class="section reveal reveal-left">
+
+        <h2 class="section-title" style="color: black;">Top Selling Products</h2>
+        <h3 style="text-align:right; padding:30px;">
+            🛒 Cart: <span id="cart-count">0</span>
+        </h3>
+
+        <div class="product-grid">
+
+
+            <div class="product-card">
+                <img src="c:\Users\imdee\Downloads\p1.png" alt="">
+                <h3>Zyra Sneakers</h3>
+                <div class="rating">★★★★★</div>
+                <p class="price">₹1999</p>
+                <button onclick="buyProduct('Zyra Sneakers')">Buy Now</button>
+            </div>
+
+
+            <div class="product-card">
+                <img src="c:\Users\imdee\Downloads\p3.png" alt="">
+                <h3>Zyra Smart Watch</h3>
+                <div class="rating">★★★★☆</div>
+                <p class="price">₹3499</p>
+                <button onclick="buyProduct('Zyra Smart Watch')">Buy Now</button>
+            </div>
+
+
+            <div class="product-card">
+                <img src="c:\Users\imdee\Downloads\p2.png" alt="">
+                <h3>Zyra Headphones</h3>
+                <div class="rating">★★★★★</div>
+                <p class="price">₹2499</p>
+                <button onclick="buyProduct('Zyra Headphones')">Buy Now</button>
+            </div>
+
+
+            <div class="product-card">
+                <img src="c:\Users\imdee\Downloads\p4.png" alt="">
+                <h3>Zyra Backpack</h3>
+                <div class="rating">★★★★☆</div>
+                <p class="price">₹1599</p>
+                <button onclick="buyProduct('Zyra Backpack')">Buy Now</button>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="top-rated" style="padding: 20px 50px;" id="TopRated" class="section reveal reveal-right">
+
+        <h2 class="section-title" style="color: black;">Top Rated – Zyra Collection</h2>
+
+        <div class="product-grid" style="margin-bottom: 50px;">
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" alt="">
+                <h3>Zyra Logo T-Shirt</h3>
+                <div class="rating">★★★★☆</div>
+                <p class="price">₹999</p>
+                <button onclick="buyProduct('Zyra Logo T-Shirt')">Buy Now</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10" alt="">
+                <h3>Zyra Premium Shirt</h3>
+                <div class="rating">★★★★☆</div>
+                <p class="price">₹1499</p>
+                <button onclick="buyProduct('Zyra Premium Shirt')">Buy Now</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7" alt="">
+                <h3>Zyra Formal Pant</h3>
+                <div class="rating">★★★★☆</div>
+                <p class="price">₹1799</p>
+                <button onclick="buyProduct('Zyra Formal Pant')">Buy Now</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1542272604-787c3835535d" alt="">
+                <h3>Zyra Denim Jeans</h3>
+                <div class="rating">★★★★☆</div>
+                <p class="price">₹1999</p>
+                <button onclick="buyProduct('Zyra Denim Jeans')">Buy Now</button>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="winter-sale" id="Winter" class="section reveal reveal-top">
+
+        <div class="sale-container">
+            <div class="sale-image">
+                <img src="c:\Users\imdee\Downloads\z.png" alt="Winter Sale">
+            </div>
+
+            <div class="sale-content">
+
+                <h4 class="sale-tag">❄ Winter Collection</h4>
+                <h1>Winter Sale <span>Up To 50% OFF</span></h1>
+
+                <div class="sale-features">
+
+                    <div class="feature">
+                        <span>🏆</span>
+                        <p>Quality Products</p>
+                    </div>
+
+                    <div class="feature">
+                        <span>🚚</span>
+                        <p>Fast Delivery</p>
+                    </div>
+
+                    <div class="feature">
+                        <span>💳</span>
+                        <p>Easy Payment Methods</p>
+                    </div>
+
+                    <div class="feature">
+                        <span>🎁</span>
+                        <p>Get Special Offers</p>
+                    </div>
+
+                </div>
+
+                <button class="shop-btn">Shop Now</button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="top-purchase" class="section reveal reveal-bottom">
+
+        <h2 class="section-title" style="color: black;">Top Purchase – Zyra Collection</h2>
+
+        <div class="purchase-grid">
+
+            <div class="purchase-card">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" alt="">
+                <h3>Zyra Logo T-Shirt</h3>
+                <div class="stars">⭐⭐⭐⭐☆</div>
+                <p class="price">₹999</p>
+                <button onclick="buyProduct('Zyra Logo T-Shirt')">Buy Now</button>
+            </div>
+
+            <div class="purchase-card">
+                <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10" alt="">
+                <h3>Zyra Premium Shirt</h3>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="price">₹1499</p>
+                <button onclick="buyProduct('Zyra Premium Shirt')">Buy Now</button>
+            </div>
+
+            <div class="purchase-card">
+                <img src="https://images.unsplash.com/photo-1542272604-787c3835535d" alt="">
+                <h3>Zyra Denim Jeans</h3>
+                <div class="stars">⭐⭐⭐⭐☆</div>
+                <p class="price">₹1899</p>
+                <button onclick="buyProduct('Zyra Premium Shirt')">Buy Now</button>
+            </div>
+
+            <div class="purchase-card">
+                <img src="c:\Users\imdee\Downloads\hoodie.png" alt="">
+                <h3>Zyra Hoodie</h3>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="price">₹1799</p>
+                <button onclick="buyProduct('Zyra Premium Shirt')">Buy Now</button>
+            </div>
+
+            <div class="purchase-card">
+                <img src="c:\Users\imdee\Downloads\p1.png" alt="">
+                <h3>Zyra Sneakers</h3>
+                <div class="stars">⭐⭐⭐⭐☆</div>
+                <p class="price">₹2499</p>
+                <button onclick="buyProduct('Zyra Sneakers')">Buy Now</button>
+            </div>
+
+            <div class="purchase-card">
+                <img src="c:\Users\imdee\Downloads\p3.png" alt="">
+                <h3>Zyra Smart Watch</h3>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="price">₹2999</p>
+                <button onclick="buyProduct('Zyra Smart Watch')">Buy Now</button>
+            </div>
+
+            <div class="purchase-card">
+                <img src="c:\Users\imdee\Downloads\p4.png" alt="">
+                <h3>Zyra Backpack</h3>
+                <div class="stars">⭐⭐⭐⭐☆</div>
+                <p class="price">₹1399</p>
+                <button onclick="buyProduct('Zyra Backpack')">Buy Now</button>
+            </div>
+
+            <div class="purchase-card">
+                <img src="c:\Users\imdee\Downloads\p2.png" alt="">
+                <h3>Zyra Headphones</h3>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="price">₹2199</p>
+                <button onclick="buyProduct('Zyra Headphones')">Buy Now</button>
+            </div>
+            <div class="purchase-card">
+                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3" alt="">
+                <h3>Zyra Formal Blazer</h3>
+                <div class="stars">⭐⭐⭐⭐☆</div>
+                <p class="price">₹3499</p>
+                <button onclick="buyProduct('Zyra Premium Shirt')">Buy Now</button>
+            </div>
+
+            <div class="purchase-card">
+                <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf" alt="">
+                <h3>Zyra Casual Jacket</h3>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="price">₹2799</p>
+                <button onclick="buyProduct('Zyra Premium Shirt')">Buy Now</button>
+            </div>
+        </div>
+
+    </section>
+    <section class="blog-slider" class="section reveal reveal-left">
+        <h2 class="section-title">Latest Zyra Blog & Products</h2>
+        <div class="slider-container">
+            <div class="sliders active">
+                <img src="https://images.unsplash.com/photo-1607083206869-4c7672e72a8a" alt="">
+                <h3>Zyra Sneakers Style Tips</h3>
+                <p>Top streetwear combos for this season.</p>
+            </div>
+            <div class="sliders">
+                <img src="c:\Users\imdee\Downloads\hoodie.png" alt="">
+                <h3>Zyra Hoodie Winter Collection</h3>
+                <p>Stay warm and trendy with Zyra hoodies.</p>
+            </div>
+            <div class="sliders">
+                <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10" alt="">
+                <h3>Zyra Denim Jeans Guide</h3>
+                <p>Perfect fit jeans for casual and office looks.</p>
+            </div>
+            <div class="sliders">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" alt="">
+                <h3>Zyra Logo T-Shirt Styling</h3>
+                <p>Mix & match tees for maximum impact.</p>
+            </div>
+            <div class="sliders">
+                <img src="c:\Users\imdee\Downloads\p3.png" alt="">
+                <h3>Zyra Smart Watch Features</h3>
+                <p>Track style & fitness with Zyra tech.</p>
+            </div>
+            <div class="sliders">
+                <img src="c:\Users\imdee\Downloads\p4.png" alt="">
+                <h3>Zyra Backpacks for College</h3>
+                <p>Fashionable & functional backpacks.</p>
+            </div>
+            <div class="sliders">
+                <img src="c:\Users\imdee\Downloads\p2.png" alt="">
+                <h3>Zyra Headphones Sound Check</h3>
+                <p>Top sound quality and style for music lovers.</p>
+            </div>
+            <div class="sliders">
+                <img src="c:\Users\imdee\Downloads\z.png" alt="">
+                <h3>Zyra Winter Jackets</h3>
+                <p>Cozy jackets for chilly days with style.</p>
+            </div>
+        </div>
+
+    </section>
+    <section class="zyra-blog"
+        style="padding:50px 20px; background:#f1f5f9; font-family:'Segoe UI', sans-serif, class=section reveal reveal-right"
+        ;>
+        <h2 style="text-align:center; font-size:32px; margin-bottom:40px; color:#0f172a;">Latest Zyra Blogs</h2>
+        <div class="blog-cards" style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
+
+
+            <div class="blog-card"
+                style="background:white; border-radius:20px; padding:20px; width:250px; text-align:center; box-shadow:0 6px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
+                <img src="c:\Users\imdee\Downloads\p1.png" alt="Zyra Sneakers"
+                    style="width:120px; height:120px; object-fit:cover; border-radius:50%;margin: auto ;padding-right:30px;">
+                <h3 style="font-size:18px; color:#0f172a; margin-bottom:10px;">Zyra Sneakers Style</h3>
+                <p style="font-size:14px; color:#6b7280;">Top streetwear combos for this season.</p>
+            </div>
+
+
+            <div class="blog-card"
+                style="background:white; border-radius:20px; padding:20px; width:250px; text-align:center; box-shadow:0 6px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
+                <img src="c:\Users\imdee\Downloads\hoodie.png" alt="Zyra Hoodie"
+                    style="width:120px; height:120px; object-fit:cover; border-radius:50%; margin: auto ;padding-right:30px;">
+                <h3 style="font-size:18px; color:#0f172a; margin-bottom:10px;">Zyra Hoodie Winter</h3>
+                <p style="font-size:14px; color:#6b7280;">Stay warm and trendy with Zyra hoodies.</p>
+            </div>
+
+
+            <div class="blog-card"
+                style="background:white; border-radius:20px; padding:20px; width:250px; text-align:center; box-shadow:0 6px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
+                <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10" alt="Zyra Jeans"
+                    style="width:120px; height:120px; object-fit:cover; border-radius:50%; margin:auto ;padding-right:30px;">
+                <h3 style="font-size:18px; color:#0f172a; margin-bottom:10px;">Zyra Denim Jeans</h3>
+                <p style="font-size:14px; color:#6b7280;">Perfect fit jeans for casual and office looks.</p>
+            </div>
+
+
+            <div class="blog-card"
+                style="background:white; border-radius:20px; padding:20px; width:250px; text-align:center; box-shadow:0 6px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" alt="Zyra T-Shirt"
+                    style="width:120px; height:120px; object-fit:cover; border-radius:50%; margin: auto ;padding-right:30px;">
+                <h3 style="font-size:18px; color:#0f172a; margin-bottom:10px;">Zyra Logo T-Shirt</h3>
+                <p style="font-size:14px; color:#6b7280;">Mix & match tees for maximum impact.</p>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <footer
+        style="background:#0f172a; color:white; padding:60px 20px; font-family: 'Segoe UI', sans-serif;text-align: center; animation: slideTop 4s ease forwards section reveal reveal-top">
+        <div
+            style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:40px;">
+            <div style="flex:1; min-width:220px;">
+                <h2 style="font-size:30px; font-weight:bold; margin-bottom:15px;">Zy<span
+                        style="color:#38bdf8;">ra</span></h2>
+                <p style="font-size:14px; color:#cbd5e1; line-height:1.6;">
+                    Developed by Suraj Vishwakarmaa. Buy latest fashion, electronics, and accessories from Zyra. Enjoy
+                    top quality and secure payments.
+                </p>
+            </div>
+            <div style="flex:1; min-width:180px;text-align: center;">
+                <h3 style="font-size:18px; margin-bottom:15px;">Support</h3>
+                <ul style="list-style:none; padding:0; font-size:14px;">
+                    <li style="margin-bottom:8px; cursor:pointer; transition:0.3s;"
+                        onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='white'">Refund Policy
+                    </li>
+                    <li style="margin-bottom:8px; cursor:pointer; transition:0.3s;"
+                        onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='white'">Purchase Guide
+                    </li>
+                    <li style="margin-bottom:8px; cursor:pointer; transition:0.3s;"
+                        onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='white'">Shipping Info
+                    </li>
+                    <li style="margin-bottom:8px; cursor:pointer; transition:0.3s;"
+                        onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='white'">Terms &
+                        Conditions</li>
+                </ul>
+            </div>
+            <div style="flex:1; min-width:180px;">
+                <h3 style="font-size:18px; margin-bottom:15px;">Top Selling</h3>
+                <ul style="list-style:none; padding:0; font-size:14px;">
+                    <li style="margin-bottom:8px; cursor:pointer; transition:0.3s;"
+                        onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='white'">Zyra Sneakers
+                    </li>
+                    <li style="margin-bottom:8px; cursor:pointer; transition:0.3s;"
+                        onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='white'">Zyra Hoodie</li>
+                    <li style="margin-bottom:8px; cursor:pointer; transition:0.3s;"
+                        onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='white'">Zyra Smart Watch
+                    </li>
+                    <li style="margin-bottom:8px; cursor:pointer; transition:0.3s;"
+                        onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='white'">Zyra Backpack
+                    </li>
+                </ul>
+            </div>
+
+            <div style="flex:1; min-width:180px 0;align-items: center;justify-items: center;">
+                <h3 style="font-size:18px; margin-bottom:15px;">Follow Us</h3>
+                <div style="display:flex; gap:12px; margin-bottom:20px;">
+                    <a href="#" style="color:white; font-size:20px; transition:0.3s;"
+                        onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='white'">🌐</a>
+                    <a href="#" style="color:white; font-size:20px; transition:0.3s;"
+                        onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='white'">📘</a>
+                    <a href="#" style="color:white; font-size:20px; transition:0.3s;"
+                        onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='white'">🐦</a>
+                    <a href="#" style="color:white; font-size:20px; transition:0.3s;"
+                        onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='white'">📸</a>
+                </div>
+                <p style="font-size:14px; color:#cbd5e1;">Subscribe for offers & updates</p>
+                <input type="email" placeholder="Enter your email"
+                    style="padding:10px 15px; border-radius:30px; border:none; outline:none; margin-top:10px; width:100%; max-width:200px; border: 2px solid aqua;">
+                <button
+                    style="margin-top:10px; padding:8px 18px; border:none; border-radius:20px; background:#0ea5e9; color:white; cursor:pointer; font-weight:bold; transition:0.3s;"
+                    onmouseover="this.style.background='#2563eb'"
+                    onmouseout="this.style.background='#0ea5e9'">Subscribe</button>
+            </div>
+
+        </div>
+
+        <div
+            style="text-align:center; margin-top:40px; border-top:1px solid #1e293b; padding-top:20px; font-size:14px; color:#94a3b8;">
+            © 2026 <span style="color: White;"> Zyra E-commerce.</span> Developed by <span
+                style="color: rgb(112, 221, 238);font-weight: bold;font-size: 20px;">Suraj Vishwakarma.</span> All
+            rights reserved.
+        </div>
+        <button id="backToTop">👆</button>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
